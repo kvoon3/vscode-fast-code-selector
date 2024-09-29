@@ -1,24 +1,24 @@
 {
-  "publisher": "antfu",
-  "name": "ext-name",
-  "displayName": "ext-name",
+  "publisher": "kvoon",
+  "name": "fast-code-selector",
+  "displayName": "Fast Code Selector",
   "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@9.11.0",
   "description": "",
-  "author": "Anthony Fu <anthonyfu117@hotmail.com>",
+  "author": "Kevin Kwong <a1176079417@gmail.com>",
   "license": "MIT",
-  "funding": "https://github.com/sponsors/antfu",
-  "homepage": "https://github.com/antfu/ext-name#readme",
+  "funding": "https://github.com/sponsors/kvoon3",
+  "homepage": "https://github.com/kvoon3/vscode-fast-code-selector#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/antfu/ext-name"
+    "url": "https://github.com/kvoon3/fast-code-selector"
   },
   "bugs": {
-    "url": "https://github.com/antfu/ext-name/issues"
+    "url": "https://github.com/kvoon3/fast-code-selector/issues"
   },
   "sponsor": {
-    "url": "https://github.com/sponsors/antfu"
+    "url": "https://github.com/sponsors/kvoon3"
   },
   "categories": [
     "Other"
@@ -37,12 +37,38 @@
     "onStartupFinished"
   ],
   "contributes": {
-    "commands": [],
-    "configuration": {
-      "type": "object",
-      "title": "ext-name",
-      "properties": {}
-    }
+    "commands": [
+      {
+        "category": "Fast Code Selector",
+        "title": "Function Select",
+        "command": "fastCodeSelector.fn.select"
+      },
+      {
+        "category": "Fast Code Selector",
+        "title": "Function Select",
+        "command": "fastCodeSelector.fn.delete"
+      },
+      {
+        "category": "Fast Code Selector",
+        "title": "Function Return Select",
+        "command": "fastCodeSelector.fnReturn.select"
+      },
+      {
+        "category": "Fast Code Selector",
+        "title": "Function Return Delete",
+        "command": "fastCodeSelector.fnReturn.delete"
+      },
+      {
+        "category": "Fast Code Selector",
+        "title": "Function Body Select",
+        "command": "fastCodeSelector.fnBody.select"
+      },
+      {
+        "category": "Fast Code Selector",
+        "title": "Function Body Delete",
+        "command": "fastCodeSelector.fnBody.delete"
+      }
+    ]
   },
   "scripts": {
     "build": "tsup src/index.ts --external vscode",
@@ -61,6 +87,10 @@
   "devDependencies": {
     "@antfu/eslint-config": "^3.7.3",
     "@antfu/ni": "^0.23.0",
+    "@babel/parser": "^7.25.6",
+    "@babel/traverse": "^7.25.6",
+    "@babel/types": "^7.25.6",
+    "@types/babel__traverse": "^7.20.6",
     "@types/node": "^22.7.3",
     "@types/vscode": "^1.93.0",
     "@vscode/vsce": "^3.1.0",

@@ -10,7 +10,7 @@ import { logger } from './utils'
 type FnOperator = (nodes: ReturnType<typeof getFn>) => any
 
 const { activate, deactivate } = defineExtension(() => {
-  logger.show()
+  // logger.show()
 
   const editor = useActiveTextEditor()
   const doc = computed(() => editor.value?.document)
@@ -42,6 +42,7 @@ const { activate, deactivate } = defineExtension(() => {
       ) {
         const nodes = getFn({
           ast: parse(text.value, {
+            sourceType: 'unambiguous',
             plugins: [
               'typescript',
             ],

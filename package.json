@@ -97,6 +97,8 @@
     "bumpp": "^9.5.2",
     "eslint": "^9.11.1",
     "esno": "^4.7.0",
+    "html5parser": "^2.0.2",
+    "node-html-parser": "^6.1.13",
     "pnpm": "^9.11.0",
     "reactive-vscode": "^0.2.3",
     "taze": "^0.16.9",

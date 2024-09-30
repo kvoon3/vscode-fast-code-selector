@@ -32,7 +32,12 @@ Fast Code Selector allows you to quickly select and manipulate code blocks based
 
 - [ ] More ast node
   - [x] Function
-- [ ] Vue support
+  - [ ] Class
+- [x] HTML, Vue support
+
+## Credits
+
+Deeply inspired by [Smart Clicks](https://github.com/antfu/vscode-smart-clicks)
 
 ## License
 

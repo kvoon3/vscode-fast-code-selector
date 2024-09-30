@@ -1,4 +1,4 @@
-import type { BlockStatement, Node, ReturnStatement } from '@babel/types'
+import type { Node, ReturnStatement } from '@babel/types'
 import type { TextDocument } from 'vscode'
 import { parse } from '@babel/parser'
 import traverse from '@babel/traverse'
@@ -103,7 +103,7 @@ function getFn(ctx: {
   // let thePath: NodePath<FunctionDeclaration | ArrowFunctionExpression | ClassMethod> | undefined
 
   let expression: Node | undefined
-  let expressionBody: BlockStatement | undefined
+  let expressionBody: Node | undefined
   let returnStatement: ReturnStatement | undefined
 
   traverse(ast, {
@@ -148,8 +148,12 @@ function getFn(ctx: {
         expression = path.node
         // @ts-expect-error type err
         expressionBody = path.node.body
+
+        returnStatement = (expressionBody?.type === 'BlockStatement')
         // @ts-expect-error type err
-        returnStatement = path.node.body.body.find(i => i.type === 'ReturnStatement')
+          ? path.node.body.body?.find(i => i.type === 'ReturnStatement')
+          : expressionBody
+
         logger.info('expression', JSON.stringify(expression, null, 2))
       }
       else {
